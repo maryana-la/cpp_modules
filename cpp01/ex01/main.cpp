@@ -1,25 +1,13 @@
-#include "Phonebook_class.hpp"
+#include "Zombie.hpp"
 
-int main ()
-{
-    std::string buff;
-    Phonebook   phone;
+int main () {
+    int N = 10;
 
-    std::cout << "WELCOME TO PHONEBOOK" << std::endl;
-    while (true) {
-        std::cout << std::endl << "*** Please enter command: ADD, SEARCH, EXIT ***" << std::endl;
-        std::cout << "Your request: ";
-        std::cin >> buff;
-        if (std::cin.eof())
-            break ;
-        if (buff == "ADD")
-            phone.add();
-        else if (buff == "SEARCH")
-            phone.search();
-        else if (buff == "EXIT")
-            break ;
-        else
-            std::cout << "Command is incorrect. Please try again." << std::endl;
-    }
-    return (0);
+    Zombie* horde = zombieHorde(N, "Zombie");
+
+    for (int i = 0; i < N; i++)
+        horde[i].announce();
+
+    delete [] horde;
+    return 0;
 }

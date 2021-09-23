@@ -10,7 +10,6 @@ Phonebook::~Phonebook() {
 
 void Phonebook::add() {
     int i;
-    std::string buff;
 
     if (this->filled < 8)
         i = this->filled;
@@ -23,21 +22,21 @@ void Phonebook::add() {
 }
 
 void Phonebook::print_header() {
-    std::cout << std::left << std::setw(10) << "INDEX";
+    std::cout << std::setw(10) << "INDEX";
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << "FIRST NAME";
+    std::cout << std::setw(10) << "FIRST NAME";
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << "LAST NAME";
+    std::cout << std::setw(10) << "LAST NAME";
     std::cout << "|";
-    std::cout << std::left << std::setw(10) << "NICKNAME" << std::endl;
+    std::cout << std::setw(10) << "NICKNAME" << std::endl;
 }
 
 void Phonebook::print_param(const std::string& param) {
     std::cout << "|";
     if (param.length() > 10)
-        std::cout << std::left << param.substr(0, 9) << ".";
+        std::cout << param.substr(0, 9) << ".";
     else
-        std::cout << std::left << std::setw(10) << param;
+        std::cout << std::setw(10) << param;
 }
 
 void Phonebook::search() {
@@ -48,7 +47,7 @@ void Phonebook::search() {
     this->print_header();
     int i;
     for (i = 0; !this->contact[i].first_name.empty() && i < 8; i++) {
-        std::cout << std::left << std::setw(10) << this->contact[i].index;
+        std::cout << std::setw(10) << this->contact[i].index;
         print_param(this->contact[i].first_name);
         print_param(this->contact[i].last_name);
         print_param(this->contact[i].nickname);

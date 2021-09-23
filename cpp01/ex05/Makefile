@@ -1,9 +1,9 @@
 
-NAME	=	brain
+NAME	=	karen
 
-COMP	=	clang++ -Wall -Wextra -Werror -std=c++98
+COMP	=	clang++ -Wall -Wextra -Werror -g -std=c++98
 
-SRC		=	main.cpp
+SRC		=	main.cpp Karen.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
@@ -16,10 +16,10 @@ $(NAME): $(OBJ)
 	$(COMP) $(OBJ) -o$(NAME)
 
 clean:
-	rm $(OBJ)
+	rm -rf $(OBJ)
 
 fclean:	clean
-	rm $(NAME)
+	rm -rf $(NAME)
 
 re:	fclean all
 

@@ -1,15 +1,13 @@
 
-NAME	=	phonebook
+NAME	=	zombie_horde
 
 COMP	=	clang++ -Wall -Wextra -Werror -std=c++98
 
-SRC		=	Contact_class.cpp Phonebook_class.cpp main.cpp
+SRC		=	main.cpp Zombie.cpp ZombieHorde.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
-HEADER =	Contact_class.hpp Phonebook_class.hpp
-
-%.o:		%.cpp $(HEADER)
+%.o:		%.cpp
 		$(COMP) -c -o $@ $<
 
 all:	$(NAME)

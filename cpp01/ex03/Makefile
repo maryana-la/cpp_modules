@@ -1,9 +1,9 @@
 
-NAME	=	zombie
+NAME	=	violence
 
 COMP	=	clang++ -Wall -Wextra -Werror -std=c++98
 
-SRC		=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC		=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
@@ -16,10 +16,10 @@ $(NAME): $(OBJ)
 	$(COMP) $(OBJ) -o$(NAME)
 
 clean:
-	rm $(OBJ)
+	rm -rf $(OBJ)
 
 fclean:	clean
-	rm $(NAME)
+	rm -rf $(NAME)
 
 re:	fclean all
 
