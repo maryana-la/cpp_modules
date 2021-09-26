@@ -16,7 +16,7 @@ public:
     Contact ();
     ~Contact ();
     void get_info ();
-    static std::string read_lines(const std::string& name);
+    std::string read_lines(const std::string& name);
 };
 
 #endif

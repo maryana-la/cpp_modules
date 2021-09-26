@@ -1,9 +1,9 @@
 
-NAME	=	megaphone
+NAME	=	a.out
 
-COMP	=	clang++ -Wall -Wextra -Werror -std=c++98
+COMP	=	clang++ -Wall -Wextra -Werror -g -std=c++98
 
-SRC		=	megaphone.cpp
+SRC		=	main.cpp Fixed.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
