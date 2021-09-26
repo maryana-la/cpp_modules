@@ -1,4 +1,5 @@
 #include "Phonebook_class.hpp"
+#include <cstdlib>
 
 Phonebook::Phonebook() {
     this->filled = 0;
@@ -61,7 +62,7 @@ void Phonebook::search() {
 
     std::cout << std::endl<< "Please enter index form 1 till " << i << " : ";
     std::cin >> tmp;
-    index = (int)strtol(tmp, (char **)nullptr, 10);
+    index = (int)strtol(tmp, NULL, 10);
     if (index > 0 && index <= i) {
         std::cout << "First name: " << this->contact[index - 1].first_name << std::endl;
         std::cout << "Last name: " << this->contact[index - 1].last_name << std::endl;

@@ -24,7 +24,7 @@ Fixed::Fixed (const int num) {
 }
 
 Fixed::Fixed (const float num) {
-    _FixPValue = std::roundf(num * (1 << _fractBits));
+    _FixPValue = roundf(num * (1 << _fractBits));
     std::cout << "Float constructor called" <<std::endl;
 //    (fixed_point_t)(round(input * (1 << FIXED_POINT_FRACTIONAL_BITS)));
 }

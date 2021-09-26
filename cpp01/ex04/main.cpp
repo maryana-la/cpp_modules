@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <cstring>
 
 void error_print(std::string err)
 {
@@ -45,12 +47,12 @@ int main (int argc, char *argv[]){
     if (!file_in)
         error_print("Oops, cannot read from file. Try again");
 
-    std::string out(argv[1]);
+    char* out(argv[1]);
     for (int i = 0; out[i]; i++) {
         out[i] = (char)toupper(out[i]);
     }
-    out += ".replace";
-    std::ofstream file_out(out, std::ios::trunc);
+    std::strcat (out, ".replace");
+    std::ofstream file_out("new", std::ios::trunc);
     if (!file_out)
         error_print("Oops, cannot create file for writing. Try again");
 

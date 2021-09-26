@@ -34,11 +34,15 @@ public:
 
     /* increment/decrement */
     Fixed operator++ (int);
-    Fixed operator++ ();
+    Fixed& operator++ ();
     Fixed operator-- (int);
-    Fixed operator-- ();
+    Fixed& operator-- ();
 
     /* min/max */
+	static Fixed& min (Fixed& v1, Fixed& v2);
+	static const Fixed& min (const Fixed& v1, const Fixed& v2);
+	static Fixed& max (Fixed& v1, Fixed& v2);
+	static const Fixed& max (const Fixed& v1, const Fixed& v2);
 
 
     /* overload via friend functions */

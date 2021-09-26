@@ -20,7 +20,7 @@ Fixed::Fixed (const int num) {
 }
 
 Fixed::Fixed (const float num) {
-    _FixPValue = std::roundf(num * (1 << _fractBits));
+    _FixPValue = roundf(num * (1 << _fractBits));
     std::cout << "Float constructor called" <<std::endl;
 }
 
@@ -108,15 +108,15 @@ Fixed Fixed::operator- (const Fixed& other) const {
     return (new_ex);
 }
 
-Fixed Fixed::operator* (const Fixed& other) const {
+Fixed Fixed::operator* (const Fixed& other) const { //todo check in main
     Fixed new_ex;
-    new_ex._FixPValue = this->_FixPValue * other.getRawBits();
+    new_ex._FixPValue = (this->_FixPValue * other.getRawBits())  / (1 << _fractBits);
     return (new_ex);
 }
 
-Fixed Fixed::operator/ (const Fixed& other) const {
+Fixed Fixed::operator/ (const Fixed& other) const { //todo check in main
     Fixed new_ex;
-    new_ex._FixPValue = this->_FixPValue / other.getRawBits();
+    new_ex._FixPValue = (this->_FixPValue / (1 << _fractBits)) / other.getRawBits() ;
     return (new_ex);
 }
 
@@ -127,7 +127,7 @@ Fixed Fixed::operator++ (int) {
     return temp;
 }
 
-Fixed Fixed::operator++ () {
+Fixed& Fixed::operator++ () {
     this->_FixPValue += 1;
     return (*this);
 }
@@ -138,8 +138,29 @@ Fixed Fixed::operator-- (int) {
     return temp;
 }
 
-Fixed Fixed::operator-- () {
+Fixed& Fixed::operator-- () {
     this->_FixPValue -= 1;
     return (*this);
+}
+
+/* min/max */
+Fixed& Fixed::min (Fixed& v1, Fixed& v2) {
+	if (v1 < v2)
+		return v1;
+	return v2;
+}
+
+const Fixed& Fixed::min (const Fixed& v1, const Fixed& v2) {
+	return (v1 < v2 ? v1 : v2);
+}
+
+Fixed& Fixed::max (Fixed& v1, Fixed& v2) {
+	if (v1 > v2)
+		return v1;
+	return v2;
+}
+
+const Fixed& Fixed::max (const Fixed& v1, const Fixed& v2) {
+	return (v1 > v2 ? v1 : v2);
 }
 
