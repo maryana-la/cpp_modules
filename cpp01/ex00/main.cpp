@@ -7,6 +7,9 @@ int main () {
     Zombie *Cucu = newZombie("Cucu");
     Cucu->announce();
 
+    Zombie Pepe;
+    Pepe.announce();
+
     randomChump("Pepe");
 
     delete Cucu;

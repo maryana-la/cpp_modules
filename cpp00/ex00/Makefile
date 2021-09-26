@@ -16,10 +16,10 @@ $(NAME): $(OBJ)
 	$(COMP) $(OBJ) -o$(NAME)
 
 clean:
-	rm $(OBJ)
+	rm -rf $(OBJ)
 
 fclean:	clean
-	rm $(NAME)
+	rm -rf $(NAME)
 
 re:	fclean all
 

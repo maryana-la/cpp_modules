@@ -26,13 +26,8 @@ Fixed::Fixed (const int num) {
 Fixed::Fixed (const float num) {
     _FixPValue = std::roundf(num * (1 << _fractBits));
     std::cout << "Float constructor called" <<std::endl;
-//    from float to int
 //    (fixed_point_t)(round(input * (1 << FIXED_POINT_FRACTIONAL_BITS)));
 }
-
-/*
- *  Destructor
- */
 
 Fixed::~Fixed () {
     std::cout << "Destructor called" << std::endl;
@@ -61,7 +56,7 @@ float Fixed::toFloat ( void ) const {
 
 int Fixed::toInt ( void ) const {
     int ret;
-    ret = _FixPValue / (1 << _fractBits);
+    ret = _FixPValue / (1 << _fractBits); // == / 256
     return ret;
 //    return (_FixPValue >> _fractBits); - also works
 }
@@ -70,7 +65,7 @@ int Fixed::toInt ( void ) const {
  *  Overload
 */
 
-const Fixed& Fixed::operator = (const Fixed& other) {
+const Fixed& Fixed::operator= (const Fixed& other) {
     std::cout << "Assignation operator called" << std::endl;
     this->_FixPValue = other.getRawBits();
     return *this;

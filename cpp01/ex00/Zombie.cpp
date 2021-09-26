@@ -4,6 +4,10 @@ Zombie::Zombie(std::string name) {
     this->_name = name;
 }
 
+Zombie::Zombie() {
+    this->_name = "Default";
+}
+
 Zombie::~Zombie() {
     std::cout << _name << " is gone" << std::endl;
 }

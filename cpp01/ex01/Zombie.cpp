@@ -3,6 +3,10 @@
 Zombie::Zombie() {
 }
 
+Zombie::Zombie(std::string name) {
+    this->_name = name;
+}
+
 Zombie::~Zombie() {
     std::cout << _name << " is gone" << std::endl;
 }
