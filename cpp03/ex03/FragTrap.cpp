@@ -6,7 +6,8 @@ FragTrap::FragTrap () {
     std::cout << BLUE << "^^^ FragTrap Default constructor is called" << RESET << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name){
+FragTrap::FragTrap(std::string name) {
+    _name = name;
     setParams(100, 100, 30);
     std::cout << BLUE << "^^^ FragTrap constructor called for " << _name << RESET << std::endl;
 }
