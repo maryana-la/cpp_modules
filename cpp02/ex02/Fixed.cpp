@@ -5,23 +5,22 @@
  */
 
 Fixed::Fixed () {
-    _FixPValue = 0;
-//    std::cout << "Default constructor called" << std::endl;
+    _rawValue = 0;
 }
 
 Fixed::Fixed (const Fixed& other) {
 //    std::cout << "Copy constructor called" << std::endl;
-    *this = other; //
+    this->_rawValue = other.getRawBits(); //
 }
 
 Fixed::Fixed (const int num) {
-    _FixPValue = num << _fractBits;
-    std::cout << "Int constructor called" <<std::endl;
+    _rawValue = num << _fractBits;
+//    std::cout << "Int constructor called" <<std::endl;
 }
 
 Fixed::Fixed (const float num) {
-    _FixPValue = roundf(num * (1 << _fractBits));
-    std::cout << "Float constructor called" <<std::endl;
+    _rawValue = (int) roundf(num * (1 << _fractBits));
+//    std::cout << "Float constructor called" <<std::endl;
 }
 
 Fixed::~Fixed () {
@@ -32,24 +31,23 @@ Fixed::~Fixed () {
  *  member functions
  */
 
-int Fixed::getRawBits( void ) const {
-    return this->_FixPValue;
+int Fixed::getRawBits( ) const {
+    return this->_rawValue;
 }
 
 void Fixed::setRawBits( int const raw ) {
-    _FixPValue = raw;
+    _rawValue = raw;
 }
 
-float Fixed::toFloat ( void ) const {
+float Fixed::toFloat ( ) const {
     float ret;
-    ret = (float)_FixPValue / (float)(1 << _fractBits);
+    ret = (float)_rawValue / (float)(1 << _fractBits);
     return ret;
-
 }
 
-int Fixed::toInt ( void ) const {
+int Fixed::toInt ( ) const {
     int ret;
-    ret = _FixPValue / (1 << _fractBits);
+    ret = _rawValue / (1 << _fractBits);
     return ret;
 }
 
@@ -57,9 +55,9 @@ int Fixed::toInt ( void ) const {
  *  Overload
 */
 
-const Fixed& Fixed::operator= (const Fixed& other) {
+Fixed& Fixed::operator= (const Fixed& other) {
 //    std::cout << "Assignation operator called" << std::endl;
-    this->_FixPValue = other.getRawBits();
+    this->_rawValue = other.getRawBits();
     return *this;
 }
 
@@ -72,23 +70,23 @@ std::ostream& operator<< (std::ostream &out, const Fixed &fix)
 /* comparison operators*/
 
 bool operator> (const Fixed &f1, const Fixed &f2) {
-    return (f1._FixPValue > f2._FixPValue);
+    return (f1._rawValue > f2._rawValue);
 }
 
 bool operator< (const Fixed &f1, const Fixed &f2) {
-    return (f1._FixPValue < f2._FixPValue);
+    return (f1._rawValue < f2._rawValue);
 }
 
 bool operator>= (const Fixed &f1, const Fixed &f2) {
-    return (f1._FixPValue >= f2._FixPValue);
+    return (f1._rawValue >= f2._rawValue);
 }
 
 bool operator<= (const Fixed &f1, const Fixed &f2) {
-    return (f1._FixPValue <= f2._FixPValue);
+    return (f1._rawValue <= f2._rawValue);
 }
 
 bool operator== (const Fixed &f1, const Fixed &f2) {
-    return (f1._FixPValue == f2._FixPValue);
+    return (f1._rawValue == f2._rawValue);
 }
 
 bool operator!= (const Fixed &f1, const Fixed &f2) {
@@ -98,48 +96,51 @@ bool operator!= (const Fixed &f1, const Fixed &f2) {
 /* arithmetic operators */
 Fixed Fixed::operator+ (const Fixed& other) const {
     Fixed new_ex;
-    new_ex._FixPValue = this->_FixPValue + other.getRawBits();
+    new_ex.setRawBits (this->_rawValue + other.getRawBits());
     return (new_ex);
 }
 
 Fixed Fixed::operator- (const Fixed& other) const {
     Fixed new_ex;
-    new_ex._FixPValue = this->_FixPValue - other.getRawBits();
+    new_ex.setRawBits (this->_rawValue - other.getRawBits());
     return (new_ex);
 }
 
 Fixed Fixed::operator* (const Fixed& other) const { //todo check in main
     Fixed new_ex;
-    new_ex._FixPValue = (this->_FixPValue * other.getRawBits())  / (1 << _fractBits);
+    new_ex.setRawBits ((this->_rawValue * other.getRawBits()) / (1 << _fractBits));
     return (new_ex);
 }
 
 Fixed Fixed::operator/ (const Fixed& other) const { //todo check in main
     Fixed new_ex;
-    new_ex._FixPValue = (this->_FixPValue / (1 << _fractBits)) / other.getRawBits() ;
+    float temp;
+
+    temp = (float)this->getRawBits() / (float)other.getRawBits();
+    new_ex.setRawBits((int)roundf(temp * (1 << _fractBits)));
     return (new_ex);
 }
 
 /* in-, decrements */
 Fixed Fixed::operator++ (int) {
     Fixed temp (*this);
-    this->_FixPValue += 1;
+    this->_rawValue += 1;
     return temp;
 }
 
 Fixed& Fixed::operator++ () {
-    this->_FixPValue += 1;
+    this->_rawValue += 1;
     return (*this);
 }
 
 Fixed Fixed::operator-- (int) {
     Fixed temp (*this);
-    this->_FixPValue -= 1;
+    this->_rawValue -= 1;
     return temp;
 }
 
 Fixed& Fixed::operator-- () {
-    this->_FixPValue -= 1;
+    this->_rawValue -= 1;
     return (*this);
 }
 

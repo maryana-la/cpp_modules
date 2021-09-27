@@ -6,25 +6,24 @@
 
 class Fixed {
 private:
-    int _FixPValue;
+    int _rawValue;
     static const int _fractBits = 8;
 
 public:
     /* canonical form */
     Fixed ();
     Fixed (const Fixed& other); //коструктор копирования
-    ~Fixed ();
-    const Fixed& operator= (const Fixed& other); //перегрузка оператора =
-    /*canonical form enf */
-
     Fixed (const int num);
     Fixed (const float num);
+    ~Fixed ();
+    Fixed& operator= (const Fixed& other); //перегрузка оператора =
+    /*canonical form enf */
 
-    int getRawBits ( void ) const; //todo check it
-    void setRawBits ( int const raw ); //todo check it
+    int getRawBits () const;
+    void setRawBits ( int const raw );
 
-    float toFloat ( void ) const;
-    int toInt ( void ) const;
+    float toFloat () const;
+    int toInt () const;
 
     /* arithmetic */
     Fixed operator+ (const Fixed& other) const;
