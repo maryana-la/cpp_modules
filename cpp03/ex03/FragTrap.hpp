@@ -3,8 +3,8 @@
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 
-class FragTrap : public ClapTrap {
-private:
+class FragTrap : public virtual ClapTrap {
+protected:
     FragTrap();
 
 public:
@@ -12,10 +12,10 @@ public:
     FragTrap(std::string name);
     FragTrap(const FragTrap& other);
     ~FragTrap();
-    const FragTrap operator= (const FragTrap& other);
+    FragTrap& operator= (const FragTrap& other);
 
     /* functions */
-    void highFivesGuys(void);
+    void highFivesGuys( );
 };
 
 #endif //FRAGTRAP_HPP

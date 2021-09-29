@@ -9,10 +9,8 @@ void error_print(std::string err)
     exit (1);
 }
 
-void replace_symbols (std::ifstream& file_in, std::ofstream& file_out, char *argv[])
+void replace_symbols (std::ifstream& file_in, std::ofstream& file_out, std::string &strDelete, std::string &strNew)
 {
-    std::string strDelete = argv[2]; //to delete
-    std::string strNew = argv[3]; //to insert
     size_t s1_len = strDelete.length();
     size_t s2_len = strNew.length();
 
@@ -47,16 +45,19 @@ int main (int argc, char *argv[]){
     if (!file_in)
         error_print("Oops, cannot read from file. Try again");
 
+    std::string strDelete = argv[2];
+    std::string strNew = argv[3];
+
     char* out(argv[1]);
     for (int i = 0; out[i]; i++) {
         out[i] = (char)toupper(out[i]);
     }
     std::strcat (out, ".replace");
-    std::ofstream file_out("new", std::ios::trunc);
+    std::ofstream file_out(out, std::ios::trunc);
     if (!file_out)
         error_print("Oops, cannot create file for writing. Try again");
 
-    replace_symbols(file_in, file_out, argv);
+    replace_symbols(file_in, file_out, strDelete, strNew);
     file_out.close();
     file_in.close();
 

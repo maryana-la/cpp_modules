@@ -6,7 +6,7 @@ ScavTrap::ScavTrap () {
     std::cout << YELLOW << "*** ScavTrap Default constructor" << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
     _name = name;
     setParams(100, 50, 20);
     std::cout << YELLOW << "*** ScavTrap constructor called for " << _name << RESET << std::endl;
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other){
     std::cout << YELLOW << "*** Scavtrap Copy constructor called for " << this->_name << RESET << std::endl;
 }
 
-const ScavTrap ScavTrap::operator= (const ScavTrap& other) {
+ScavTrap& ScavTrap::operator= (const ScavTrap& other) {
     this->_name = other._name;
     setParams( other._hit_points, other._energy_points, other._attack_damage);
     std::cout << YELLOW << "*** ScavTrap Operator = overload called" << RESET << std::endl;

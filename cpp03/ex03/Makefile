@@ -1,13 +1,15 @@
 
-NAME	=	FragTrap
+NAME	=	DiamondTrap
 
-COMP	=	g++ -Wall -Wextra -Werror -Wshadow -shadow -g -std=c++98
+COMP	=	g++ -Wall -Wextra -Werror -Wshadow -Wno-shadow -g -std=c++98
 
 SRC		=	main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
-%.o:		%.cpp
+HEADER =	ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DiamondTrap.hpp
+
+%.o:		%.cpp $(HEADER)
 		$(COMP) -c -o $@ $<
 
 all:	$(NAME)

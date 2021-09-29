@@ -7,7 +7,9 @@ SRC		=	main.cpp ClapTrap.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
-%.o:		%.cpp
+HEADER =	ClapTrap.hpp
+
+%.o:		%.cpp $(HEADER)
 		$(COMP) -c -o $@ $<
 
 all:	$(NAME)

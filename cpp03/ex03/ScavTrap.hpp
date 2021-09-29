@@ -3,8 +3,8 @@
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 
-class ScavTrap : public ClapTrap {
-private:
+class ScavTrap : public virtual ClapTrap {
+protected:
     ScavTrap();
 
 public:
@@ -12,7 +12,7 @@ public:
     ScavTrap(std::string name);
     ScavTrap(const ScavTrap& other);
     ~ScavTrap();
-    const ScavTrap operator= (const ScavTrap& other);
+    ScavTrap& operator= (const ScavTrap& other);
 
     /* functions */
     void attack(std::string const & target);

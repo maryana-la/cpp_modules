@@ -16,16 +16,17 @@ public:
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap& other);
     ~ClapTrap();
-    const ClapTrap& operator= (const ClapTrap& other);
+    ClapTrap& operator= (const ClapTrap& other);
 
     /* functions */
     void setParams(unsigned int hit, unsigned int energy, unsigned int attack);
-    unsigned int getHitPoints ();
-    unsigned int getEnergyPoints ();
-    unsigned int getAttackDamage ();
+    unsigned int getHitPoints () const;
+    unsigned int getEnergyPoints () const;
+    unsigned int getAttackDamage () const;
+    std::string getName ();
     void printParams();
 
-    void attack(std::string const & target);
+    virtual void attack(std::string const & target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 

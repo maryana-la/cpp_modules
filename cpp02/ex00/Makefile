@@ -7,7 +7,9 @@ SRC		=	main.cpp Fixed.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
-%.o:		%.cpp
+HEADER	=	Fixed.hpp
+
+%.o:		%.cpp $(HEADER)
 		$(COMP) -c -o $@ $<
 
 all:	$(NAME)
