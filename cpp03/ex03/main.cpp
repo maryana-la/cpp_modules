@@ -34,6 +34,8 @@ int main () {
         DiamondTrap xexe(fufu);
         fufu.printParams();
         fufu.attack("koko");
+        fufu.takeDamage(20);
+        fufu.beRepaired(45);
         fufu.highFivesGuys();
         fufu.guardGate();
         fufu.whoAmI();

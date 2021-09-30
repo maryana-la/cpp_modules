@@ -1,7 +1,7 @@
 
 NAME	=	DiamondTrap
 
-COMP	=	g++ -Wall -Wextra -Werror -Wshadow -Wno-shadow -g -std=c++98
+COMP	=	clang++ -Wall -Wextra -Werror -Wshadow -Wno-shadow -g -std=c++98
 
 SRC		=	main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 
