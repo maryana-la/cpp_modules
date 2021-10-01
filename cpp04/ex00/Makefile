@@ -1,7 +1,7 @@
 
 NAME	=	animal
 
-COMP	=	clang++ -Wall -Wextra -Werror -g -std=c++98
+COMP	=	clang++ -Wall -Wextra -Werror -std=c++98
 
 SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 

@@ -18,7 +18,6 @@ Brain::~Brain() {
 Brain& Brain::operator= (const Brain& other) {
     for (int i = 0; i < NUM_IDEAS; i++)
         this->_ideas[i] = other.getIdeas(i);
-
     return (*this);
 }
 

@@ -3,16 +3,16 @@
 
 int main()
 {
-    {
-        std::cout << BOLDRED << "Just create and delete correctly" << RESET << std::endl;
-        std::cout << BOLDRED << "--------------------------------" << RESET << std::endl;
-        const Animal* j = new Dog();
-        const Animal* i = new Cat();
-
-        Animal norm;
-        delete j;//should not create a leak
-        delete i;
-    }
+//    {
+//        std::cout << BOLDRED << "Just create and delete correctly" << RESET << std::endl;
+//        std::cout << BOLDRED << "--------------------------------" << RESET << std::endl;
+//        const Animal* j = new Dog();
+//        const Animal* i = new Cat();
+//
+//        Animal norm;
+//        delete j;//should not create a leak
+//        delete i;
+//    }
 
     {
         std::cout << std::endl;
@@ -35,9 +35,7 @@ int main()
 
         Dog barsik;
         Dog mursik;
-        {
-            mursik = barsik;
-        }
+        mursik = barsik;
         mursik.setIdea("lulu_mursik");
         std::cout << mursik.getIdea(1) << std::endl;
         barsik.setIdea("lulu_barsik");
@@ -57,21 +55,21 @@ int main()
 
         delete barsik;//should not create a leak
     }
-    {
-        std::cout << std::endl;
-        std::cout << BOLDRED << "Check array (from subject)" << RESET << std::endl;
-        std::cout << BOLDRED << "--------------------------------" << RESET << std::endl;
-
-        Animal *tribe[10];
-        for (int i = 0; i < 10; i++) {
-            if (i < 5)
-                tribe[i] = new Cat();
-            else
-                tribe[i] = new Dog();
-            tribe[i]->makeSound();
-        }
-
-        for (int i = 0; i < 10; i++)
-            delete tribe[i];
-    }
+//    {
+//        std::cout << std::endl;
+//        std::cout << BOLDRED << "Check array (from subject" << RESET << std::endl;
+//        std::cout << BOLDRED << "--------------------------------" << RESET << std::endl;
+//
+//        Animal *tribe[10];
+//        for (int i = 0; i < 10; i++) {
+//            if (i < 5)
+//                tribe[i] = new Cat();
+//            else
+//                tribe[i] = new Dog();
+//            tribe[i]->makeSound();
+//        }
+//
+//        for (int i = 0; i < 10; i++)
+//            delete tribe[i];
+//    }
 }

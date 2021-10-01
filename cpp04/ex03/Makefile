@@ -1,5 +1,5 @@
 
-NAME	=	smartAnimal
+NAME	=	abstract
 
 COMP	=	clang++ -Wall -Wextra -Werror -std=c++98
 
