@@ -1,11 +1,12 @@
 
-NAME	=	abstract
+NAME	=	materia
 
-COMP	=	clang++ -Wall -Wextra -Werror -std=c++98
+COMP	=	clang++ -Wall -Wextra -Werror -g -std=c++98
 
-SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRC		=	AMateria.cpp Cure.cpp MateriaSource.cpp Character.cpp Ice.cpp main.cpp
 
-HEADER	=	Colors.hpp Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+HEADER	=	AMateria.hpp ICharacter.hpp MateriaSource.hpp \
+			Character.hpp IMateriaSource.hpp Cure.hpp Ice.hpp
 
 OBJ		=	$(SRC:.cpp=.o)
 

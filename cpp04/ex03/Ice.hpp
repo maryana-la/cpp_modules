@@ -1,22 +1,22 @@
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef ICE_HPP
+#define ICE_HPP
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Cure : public AMateria {
+class Ice : public AMateria {
 private:
     std::string _type;
 public:
-    Cure ();
-    Cure (const Cure & other);
-    virtual ~Cure ();
+    Ice ();
+    Ice (const Ice & other);
+    virtual ~Ice ();
 
-    Cure& operator= (const Cure & other);
+    Ice& operator= (const Ice & other);
 
     //надо переопределить
     virtual AMateria* clone () const;
     virtual void use (ICharacter& target);
 };
 
-#endif //CURE_HPP
+#endif //ICE_HPP
