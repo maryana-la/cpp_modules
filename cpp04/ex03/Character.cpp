@@ -60,6 +60,8 @@ void Character::equip(AMateria* m) {
 void Character::unequip(int idx) {
     if (idx < MAX_MAT && idx >= 0 && _materias[idx] != 0)
         _materias[idx] = NULL;
+	else
+		std::cout << "Error: nonexistent Materia" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target) {

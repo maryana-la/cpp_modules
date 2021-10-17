@@ -7,7 +7,6 @@ Cat::Cat() : Animal(){
 }
 
 Cat::Cat(const Cat& other) : Animal(other){
-    this->_type = other._type;
     this->_mozgi = new Brain;
     *(this->_mozgi) = *(other._mozgi);
     std::cout << BLUE << "Cat: new kitten is copied" << RESET << std::endl;
@@ -21,7 +20,6 @@ Cat::~Cat() {
 Cat& Cat::operator= (const Cat& other) {
     if (this == &other)
         return (*this);
-    _type = other._type;
     delete this->_mozgi;
     this->_mozgi = new Brain();
     *(this->_mozgi) = *(other._mozgi);

@@ -5,8 +5,7 @@ WrongCat::WrongCat() {
     std::cout << CYAN << "WrongCat: new kitten is born" << RESET << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& other) {
-    _type = other._type;
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
     std::cout << CYAN << "WrongCat: new kitten is copied" << RESET << std::endl;
 }
 

@@ -5,8 +5,7 @@ Cat::Cat() {
     std::cout << BLUE << "Cat: new kitten is born" << RESET << std::endl;
 }
 
-Cat::Cat(const Cat& other) {
-    _type = other._type;
+Cat::Cat(const Cat& other) : Animal(other) {
     std::cout << BLUE << "Cat: new kitten is copied" << RESET << std::endl;
 }
 

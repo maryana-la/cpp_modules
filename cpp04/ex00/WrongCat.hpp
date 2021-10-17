@@ -4,9 +4,6 @@
 #define WRONGCAT_HPP
 
 class WrongCat : public WrongAnimal {
-protected:
-    std::string _type;
-
 public:
     WrongCat();
     WrongCat(const WrongCat& other);

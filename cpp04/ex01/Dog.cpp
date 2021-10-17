@@ -7,7 +7,6 @@ Dog::Dog() : Animal () {
 }
 
 Dog::Dog(const Dog& other) : Animal(other) {
-    _type = other._type;
     this->_mozgi = new Brain;
     *(this->_mozgi) = *(other._mozgi);
     std::cout << MAGENTA << "Dog: new puppy is copied" << RESET  << std::endl;

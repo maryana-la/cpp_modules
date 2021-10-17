@@ -4,9 +4,6 @@
 #define DOG_HPP
 
 class Dog : public Animal {
-protected:
-    std::string _type;
-
 public:
     Dog();
     Dog(const Dog& other);

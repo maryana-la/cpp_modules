@@ -10,11 +10,14 @@ int main() {
         const Animal *j = new Dog();
         const Animal *i = new Cat();
 
-        std::cout << j->getType() << " " << std::endl;
-        std::cout << i->getType() << " " << std::endl;
+        std::cout << "Dog->getType: " << j->getType() << std::endl;
+        std::cout << "Cat->getType: " << i->getType() << std::endl;
         std::cout << std::endl;
-        i->makeSound(); //will output the cat sound!
-        j->makeSound();
+		std::cout << "Cat sound: ";
+		i->makeSound(); //will output the cat sound!
+		std::cout << "Dog sound: ";
+		j->makeSound();
+		std::cout << "Animal sound: ";
         meta->makeSound();
         std::cout << std::endl;
 
@@ -38,7 +41,7 @@ int main() {
         std::cout << "4 " << barsik.getType() << std::endl;
         std::cout << "4 " << snezhok.getType() << std::endl;
         std::cout << std::endl;
-        std::cout << wr_cat->getType() << std::endl;
+        std::cout << "WrongCat-> getType: " << wr_cat->getType() << std::endl;
         wr_cat->makeSound();
         pushok->makeSound();
         ruzhik.makeSound();

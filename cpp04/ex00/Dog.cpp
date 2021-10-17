@@ -5,8 +5,7 @@ Dog::Dog() {
     std::cout << MAGENTA << "Dog: new puppy is born" << RESET << std::endl;
 }
 
-Dog::Dog(const Dog& other) {
-    _type = other._type;
+Dog::Dog(const Dog& other) : Animal(other) {
     std::cout << MAGENTA << "Dog: new puppy is copied" << RESET  << std::endl;
 }
 

@@ -1,7 +1,7 @@
 
 NAME	=	materia
 
-COMP	=	clang++ -Wall -Wextra -Werror -g -std=c++98
+COMP	=	clang++ -Wall -Wextra -Werror -g -std=c++98 -pedantic
 
 SRC		=	AMateria.cpp Cure.cpp MateriaSource.cpp Character.cpp Ice.cpp main.cpp
 
@@ -10,8 +10,6 @@ HEADER	=	AMateria.hpp ICharacter.hpp MateriaSource.hpp \
 
 O_FOLD	=	objs/
 OBJ	:=	$(addprefix $(O_FOLD), $(SRC:.cpp=.o))
-
-#OBJ		=	$(SRC:.cpp=.o)
 
 $(O_FOLD)%.o:		%.cpp $(HEADER)
 		@mkdir -p objs

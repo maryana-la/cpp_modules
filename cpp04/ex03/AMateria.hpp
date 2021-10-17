@@ -13,7 +13,6 @@ private:
     AMateria();
 protected:
     std::string _type;
-
 public:
     AMateria(std::string const & type);
     AMateria(const AMateria & other);
