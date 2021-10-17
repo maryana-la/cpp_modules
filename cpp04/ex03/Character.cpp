@@ -1,6 +1,8 @@
 #include "Character.hpp"
 
 Character::Character () {
+	for (int i = 0; i < MAX_MAT; i++)
+		_materias[i] = 0;
 }
 
 Character::Character (std::string const & type) {
@@ -11,7 +13,13 @@ Character::Character (std::string const & type) {
 }
 
 Character::Character (const Character & other) {
-    *this = other;
+	this->_name = other._name;
+	for (int i = 0; i < MAX_MAT; i++) {
+		if (other._materias[i] != NULL)
+			this->_materias[i] = other._materias[i]->clone();
+		else
+			this->_materias[i] = NULL;
+	}
 }
 
 Character::~Character() {
@@ -24,9 +32,12 @@ Character::~Character() {
 Character& Character::operator= (const Character & other) {
     this->_name = other._name;
     for (int i = 0; i < MAX_MAT; i++) {
-        if (_materias[i] != NULL)
-            delete _materias[i];
-        this->_materias[i] = other._materias[i]->clone();
+        if (this->_materias[i] != NULL)
+            delete this->_materias[i];
+        if (other._materias[i] != NULL)
+			this->_materias[i] = other._materias[i]->clone();
+		else
+			this->_materias[i] = NULL;
     }
     return (*this);
 }

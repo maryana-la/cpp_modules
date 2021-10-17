@@ -8,9 +8,13 @@ SRC		=	AMateria.cpp Cure.cpp MateriaSource.cpp Character.cpp Ice.cpp main.cpp
 HEADER	=	AMateria.hpp ICharacter.hpp MateriaSource.hpp \
 			Character.hpp IMateriaSource.hpp Cure.hpp Ice.hpp
 
-OBJ		=	$(SRC:.cpp=.o)
+O_FOLD	=	objs/
+OBJ	:=	$(addprefix $(O_FOLD), $(SRC:.cpp=.o))
 
-%.o:		%.cpp $(HEADER)
+#OBJ		=	$(SRC:.cpp=.o)
+
+$(O_FOLD)%.o:		%.cpp $(HEADER)
+		@mkdir -p objs
 		$(COMP) -c -o $@ $<
 
 all:	$(NAME)
@@ -20,6 +24,7 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -rf $(OBJ)
+	@rm -rf $(O_FOLD)
 
 fclean:	clean
 	rm -rf $(NAME)

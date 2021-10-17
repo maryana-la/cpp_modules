@@ -69,7 +69,7 @@
 //        me->equip(tmp);
 //        me->unequip(1);
 //        delete tmp;
-//        tmp = src->createMateria("ice");
+//        tmp = src->createMateria("bad");
 //        me->equip(tmp);
 //        Character *bob = new Character("bob");
 //        *bob = *me;
@@ -78,11 +78,13 @@
 //        *bob = *me;
 //        me->use(0, *bob);
 //        me->use(1, *bob);
+//		me->use(1, *me);
 //        delete bob;
 //        delete me;
 //        delete src;
 //    }
 //}
+//
 
 # define C_GREEN 	"\e[32m"
 # define C_RED		"\e[31m"
