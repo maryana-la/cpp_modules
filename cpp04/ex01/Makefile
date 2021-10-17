@@ -1,7 +1,7 @@
 
 NAME	=	smartAnimal
 
-COMP	=	g++ -Wall -Wextra -Werror -std=c++98 -pedantic
+COMP	=	clang++ -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 

@@ -34,4 +34,3 @@ void Brain::setIdea(const std::string& line) {
     for (i = 0; !_ideas[i].empty() && i < NUM_IDEAS; i++);
     _ideas[i] = line;
 }
-

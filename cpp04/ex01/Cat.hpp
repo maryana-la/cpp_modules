@@ -7,8 +7,6 @@
 class Cat : public Animal {
 private:
     Brain* _mozgi;
-protected:
-    std::string _type;
 public:
     Cat();
     Cat(const Cat& other);

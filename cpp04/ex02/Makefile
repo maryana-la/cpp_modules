@@ -1,7 +1,7 @@
 
 NAME	=	abstract
 
-COMP	=	clang++ -Wall -Wextra -Werror -std=c++98
+COMP	=	clang++ -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
