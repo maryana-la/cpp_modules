@@ -53,6 +53,13 @@ void Form::beSigned (Bureaucrat & br) {
     _signed = 1;
 }
 
+void Form::checkExecRights(const Bureaucrat & br) const {
+    if (this->_signed == 0)
+        throw "form is not signed";//todo add catch in main
+    if (br.getGrade() > this->_gradeExec)
+        throw Form::GradeTooLowException();
+}
+
 Form::GradeTooHighException::GradeTooHighException() {
 }
 

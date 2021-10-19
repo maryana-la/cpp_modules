@@ -12,11 +12,11 @@ private:
     const int _gradeSign;
     const int _gradeExec;
     bool _signed;
-    Form();
 public:
+    Form();
     Form(std::string name, int toSign, int toExec);
     Form(const Form & other);
-    ~Form();
+    virtual ~Form();
 
     Form& operator= (const Form & other);
 
@@ -26,6 +26,8 @@ public:
     bool getSignStatus () const;
 
     void beSigned (Bureaucrat & br);
+    virtual void execute(Bureaucrat const & executor) const = 0;
+    void checkExecRights (const Bureaucrat &br) const;
 
     /*
      *  exception classes

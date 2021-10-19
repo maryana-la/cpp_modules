@@ -3,9 +3,9 @@ NAME	=	bureaucrat
 
 COMP	=	clang++ -Wall -Wextra -Werror -g -std=c++98 -pedantic
 
-SRC		=	main.cpp Bureaucrat.cpp Form.cpp
+SRC		=	Bureaucrat.cpp RobotomyRequestForm.cpp Form.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp main.cpp
 
-HEADER	=	Bureaucrat.hpp Form.hpp
+HEADER	=	Bureaucrat.hpp Form.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp PresidentialPardonForm.hpp
 
 O_FOLD	=	objs/
 OBJ	:=	$(addprefix $(O_FOLD), $(SRC:.cpp=.o))

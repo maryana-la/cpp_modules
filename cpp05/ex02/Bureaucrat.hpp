@@ -23,6 +23,7 @@ public:
     void incrementGrade ();
     void decrementGrade ();
     void signForm(Form & formToSign);
+    void executeForm(Form const & form);
 
     /*
      *  exception classes
