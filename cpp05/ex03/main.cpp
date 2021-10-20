@@ -23,6 +23,8 @@ int main () {
     std::cout << *pardon << std::endl;
 
     Form *wrong = novichok.makeForm("presidentialqq request", "Enemy");
+	if (!wrong)
+		std::cout << "Not created" << std::endl;
 
     std::cout << std::endl << GREEN << "SHRUBBERYCREATIONFORM" << RESET << std:: endl;
     std::cout << std::endl << RED << "TRY TO EXECUTE UNSIGNED" << RESET << std:: endl;

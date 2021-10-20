@@ -31,6 +31,5 @@ Form * Intern::makeForm (const std::string nameForm, const std::string target) {
         }
     }
     std::cout << "The requested form is not found. Try again" << std::endl;
-    return nullptr;
+    return NULL;
 }
-//todo sega if non-exist

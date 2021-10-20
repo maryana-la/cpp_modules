@@ -1,5 +1,5 @@
 
-NAME	=	bureaucrat
+NAME	=	intern
 
 COMP	=	clang++ -Wall -Wextra -Werror -g -std=c++98 -pedantic
 

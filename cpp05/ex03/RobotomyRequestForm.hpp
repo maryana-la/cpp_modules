@@ -2,7 +2,6 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 # include "Form.hpp"
-# include <string>
 
 class RobotomyRequestForm : public Form {
 private:

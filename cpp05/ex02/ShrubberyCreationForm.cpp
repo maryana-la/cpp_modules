@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include <ios>
 
 ShrubberyCreationForm::ShrubberyCreationForm() {}
 
@@ -25,10 +26,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     this->checkExecRights(executor);
     std::string fileName;
     fileName = this->_target + "_shrubbery";
-    std::ofstream fileOut(fileName, std::ios::trunc);
+    std::ofstream fileOut(fileName.c_str(), std::ios::trunc);
 
     if (fileOut.is_open()) {
-        std::srand(std::time(nullptr));
+        std::srand(std::time(NULL));
         if(std::rand() % 2) {
             fileOut << "         # #### ####" << std::endl;
             fileOut << "      ### \\/#|### |/####" << std::endl;

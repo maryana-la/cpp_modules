@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
@@ -26,23 +27,15 @@ public:
      */
 
     class GradeTooHighException: public std::exception {
-        private:
-            std::string _nameHi;
-            int _gradeHi;
         public:
             GradeTooHighException ();
-            GradeTooHighException (std::string const &name, const int &grade);
             virtual const char*	what () const throw();
             virtual ~GradeTooHighException() throw();
     };
 
     class GradeTooLowException: public std::exception {
-        private:
-            std::string _nameLow;
-            int _gradeLow;
         public:
             GradeTooLowException ();
-            GradeTooLowException (std::string const &name, const int &grade);
             virtual const char*	what () const throw();
             virtual ~GradeTooLowException() throw();
     };

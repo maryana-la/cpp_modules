@@ -2,6 +2,9 @@
 #define FORM_HPP
 
 # include <iostream>
+# include <string>
+# include <cstdlib>
+# include <ctime>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
