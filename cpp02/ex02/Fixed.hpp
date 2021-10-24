@@ -43,15 +43,6 @@ public:
 	static Fixed& max (Fixed& v1, Fixed& v2);
 	static const Fixed& max (const Fixed& v1, const Fixed& v2);
 
-
-    /* overload via friend functions */
-    friend bool operator== (const Fixed &f1, const Fixed &f2);
-    friend bool operator!= (const Fixed &f1, const Fixed &f2);
-    friend bool operator> (const Fixed &f1, const Fixed &f2);
-    friend bool operator< (const Fixed &f1, const Fixed &f2);
-    friend bool operator>= (const Fixed &f1, const Fixed &f2);
-    friend bool operator<= (const Fixed &f1, const Fixed &f2);
-
 };
 
 std::ostream& operator<< (std::ostream &out, const Fixed &fix); //перегрузка оператора <<

@@ -70,23 +70,23 @@ std::ostream& operator<< (std::ostream &out, const Fixed &fix)
 /* comparison operators*/
 
 bool operator> (const Fixed &f1, const Fixed &f2) {
-    return (f1._rawValue > f2._rawValue);
+    return (f1.getRawBits() > f2.getRawBits());
 }
 
 bool operator< (const Fixed &f1, const Fixed &f2) {
-    return (f1._rawValue < f2._rawValue);
+    return (f1.getRawBits() < f2.getRawBits());
 }
 
 bool operator>= (const Fixed &f1, const Fixed &f2) {
-    return (f1._rawValue >= f2._rawValue);
+    return (f1.getRawBits() >= f2.getRawBits());
 }
 
 bool operator<= (const Fixed &f1, const Fixed &f2) {
-    return (f1._rawValue <= f2._rawValue);
+    return (f1.getRawBits() <= f2.getRawBits());
 }
 
 bool operator== (const Fixed &f1, const Fixed &f2) {
-    return (f1._rawValue == f2._rawValue);
+    return (f1.getRawBits() == f2.getRawBits());
 }
 
 bool operator!= (const Fixed &f1, const Fixed &f2) {
@@ -106,18 +106,21 @@ Fixed Fixed::operator- (const Fixed& other) const {
     return (new_ex);
 }
 
-Fixed Fixed::operator* (const Fixed& other) const { //todo check in main
-    Fixed new_ex;
-    new_ex.setRawBits ((this->_rawValue * other.getRawBits()) / (1 << _fractBits));
+Fixed Fixed::operator* (const Fixed& other) const {
+    float temp;
+
+    temp = (float)this->toFloat() * (float) other.toFloat();
+    Fixed new_ex (temp);
+//    new_ex.setRawBits ((this->_rawValue * other.getRawBits()) / (1 << _fractBits));
     return (new_ex);
 }
 
-Fixed Fixed::operator/ (const Fixed& other) const { //todo check in main
-    Fixed new_ex;
+Fixed Fixed::operator/ (const Fixed& other) const {
     float temp;
-
-    temp = (float)this->getRawBits() / (float)other.getRawBits();
-    new_ex.setRawBits((int)roundf(temp * (1 << _fractBits)));
+    temp = (float)this->toFloat() / (float) other.toFloat();
+    Fixed new_ex (temp);
+//    temp = (float)this->getRawBits() / (float)other.getRawBits();
+//    new_ex.setRawBits((int)roundf(temp * (1 << _fractBits)));
     return (new_ex);
 }
 

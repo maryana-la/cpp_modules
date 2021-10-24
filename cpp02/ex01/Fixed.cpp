@@ -19,14 +19,12 @@ Fixed::Fixed (const Fixed& other) {
 
 Fixed::Fixed (const int num) {
     _FixPValue = num << _fractBits;
-//    _FixPValue = std::roundf(num * (1 << _fractBits)); - the same  as for float
     std::cout << "Int constructor called" <<std::endl;
 }
 
 Fixed::Fixed (const float num) {
     _FixPValue = roundf(num * (1 << _fractBits));
     std::cout << "Float constructor called" <<std::endl;
-//    (fixed_point_t)(round(input * (1 << FIXED_POINT_FRACTIONAL_BITS)));
 }
 
 Fixed::~Fixed () {
@@ -38,12 +36,10 @@ Fixed::~Fixed () {
  */
 
 int Fixed::getRawBits( void ) const {
-//    std::cout << "getRawBits member function called" << std::endl;
     return this->_FixPValue;
 }
 
 void Fixed::setRawBits( int const raw ) {
-    std::cout << "setRawBits member function called" << std::endl;
     _FixPValue = raw;
 }
 
@@ -51,7 +47,6 @@ float Fixed::toFloat ( void ) const {
     float ret;
     ret = (float)_FixPValue / (float)(1 << _fractBits);
     return ret;
-//    return ((double)input / (double)(1 << FIXED_POINT_FRACTIONAL_BITS));
 }
 
 int Fixed::toInt ( void ) const {
